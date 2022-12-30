@@ -1,8 +1,8 @@
-import React from "react";
-import { inject, observer } from "mobx-react";
+import React from 'react'
+import { inject, observer } from 'mobx-react'
 
-import AddTaskBtn from "./AddTaskBtn";
-import TaskActions from "./TaskActions";
+import AddTaskBtn from './AddTaskBtn'
+import TaskActions from './TaskActions'
 
 function TaskList({ store }) {
   return (
@@ -13,7 +13,7 @@ function TaskList({ store }) {
         <TaskActions />
       )}
     </div>
-  );
+  )
 }
 
-export default inject('store')(observer(TaskList));
+export default inject('store')(observer(TaskList))

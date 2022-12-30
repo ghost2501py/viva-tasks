@@ -1,8 +1,8 @@
-import React from "react";
-import { inject, observer } from "mobx-react";
+import React from 'react'
+import { inject, observer } from 'mobx-react'
 
-import Title from "./Title";
-import Body from "./Body";
+import Body from './Body'
+import Title from './Title'
 
 function TaskPane({ store }) {
   if (!store.currentTask.id) {
@@ -13,7 +13,7 @@ function TaskPane({ store }) {
       <Title />
       <Body />
     </div>
-  );
+  )
 }
 
-export default inject('store')(observer(TaskPane));
+export default inject('store')(observer(TaskPane))

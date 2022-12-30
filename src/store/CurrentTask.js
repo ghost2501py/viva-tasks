@@ -3,7 +3,7 @@ import {
   computed,
   makeObservable,
   observable,
-} from "mobx";
+} from 'mobx'
 
 export default class CurrentTask {
   id = null
@@ -19,17 +19,12 @@ export default class CurrentTask {
       body: observable,
       completed: observable,
       update: action,
+      delete: action,
       setTitle: action,
       setBody: action,
+      markAsCompleted: action,
       save: action,
-    });
-  }
-
-  update = (task) => {
-    this.id = task.id
-    this.title = task.title
-    this.body = task.body
-    this.completed = task.completed
+    })
   }
 
   setTitle = (title) => {
@@ -40,8 +35,29 @@ export default class CurrentTask {
     this.body = body
   }
 
+  update = (task) => {
+    this.id = task.id
+    this.title = task.title
+    this.body = task.body
+    this.completed = task.completed
+  }
+
+  delete = () => {
+    const taskIndex = this.root.tasks.findIndex((task) => task.id === this.id)
+    if (taskIndex > -1) {
+      this.root.tasks.splice(taskIndex, 1)
+      const task = { id: null, title: '', body: '', completed: false }
+      this.update(task)
+    }
+  }
+
+  markAsCompleted = () => {
+    this.completed = true
+    this.save()
+  }
+
   save = () => {
-    const taskIndex = this.root.tasks.findIndex((task) => task.id === this.id);
+    const taskIndex = this.root.tasks.findIndex((task) => task.id === this.id)
     if (taskIndex > -1) {
       this.root.tasks[taskIndex] = {
         id: this.id,

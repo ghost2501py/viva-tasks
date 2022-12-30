@@ -1,16 +1,16 @@
-import React from "react";
-import { inject, observer } from "mobx-react";
+import React from 'react'
+import { inject, observer } from 'mobx-react'
 
 function Item({ store, task }) {
   const handleClick = () => {
-    store.setCurrentTaskById(task.id);
-  };
+    store.setCurrentTaskById(task.id)
+  }
 
   return (
     <div onClick={handleClick}>
-      <div>{task.title}1</div>
+      <div>{task.title}</div>
     </div>
-  );
+  )
 }
 
-export default inject('store')(observer(Item));
+export default inject('store')(observer(Item))
