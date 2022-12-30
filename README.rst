@@ -2,6 +2,8 @@
 Viva Tasks
 **********
 
+Task app to apply to Viva Translate position.
+
 Gettings started
 ===============
 
@@ -42,7 +44,7 @@ Deploy
          -v ~/.cache/electron-builder:/root/.cache/electron-builder \
          electronuserland/builder:wine
 
-2. Run these commands to build:
+2. Run these commands to build the executable for Windows:
 
    .. code-block:: bash
 
