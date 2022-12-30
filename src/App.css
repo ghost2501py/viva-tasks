@@ -6,13 +6,13 @@
 
 #topbar {
   display: flex;
-  background: blue;
+  background: #144272;
 }
 
 #topbar button {
   background: transparent;
   padding: 20px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.85);
   border: none;
   font-weight: bold;
   text-transform: uppercase;
@@ -40,6 +40,7 @@ main {
   padding: 15px;
   cursor: pointer;
   border-bottom: 1px solid #ddd;
+  color: #333;
 }
 #task-list .item:hover {
   background: #ddd;

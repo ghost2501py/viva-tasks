@@ -19,11 +19,16 @@ function createWindow() {
     width: 800,
     height: 600,
     autoHideMenuBar: true,
+    title: 'Viva Tasks',
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
       preload: __dirname + '/preload.js',
     },
+  })
+
+  win.on('page-title-updated', (e) => {
+      e.preventDefault()
   })
 
   // and load the index.html of the app.
@@ -33,6 +38,7 @@ function createWindow() {
       ? 'http://localhost:3000'
       : `file://${path.join(__dirname, '../build/index.html')}`
   )
+
   // Open the DevTools.
   if (isDev) {
     win.webContents.openDevTools({ mode: 'detach' })
