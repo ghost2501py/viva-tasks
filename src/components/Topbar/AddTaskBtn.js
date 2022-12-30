@@ -1,6 +1,7 @@
 import React from "react";
+import { inject } from "mobx-react";
 
-function Topbar({ store }) {
+function AddTaskBtn({ store }) {
   const handleAddTask = () => {
     store.createTask();
   };
@@ -12,4 +13,4 @@ function Topbar({ store }) {
   );
 }
 
-export default Topbar;
+export default inject('store')(AddTaskBtn);

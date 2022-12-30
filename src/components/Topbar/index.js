@@ -1,14 +1,17 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 
-import Item from "./Item";
+import AddTaskBtn from "./AddTaskBtn";
+import TaskActions from "./TaskActions";
 
 function TaskList({ store }) {
   return (
     <div>
-      {store.tasks.map(task => (
-        <Item task={task} key={task.id} />
-      ))}
+      <AddTaskBtn />
+
+      {store.currentTask && (
+        <TaskActions />
+      )}
     </div>
   );
 }
