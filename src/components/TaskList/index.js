@@ -5,7 +5,7 @@ import Item from './Item'
 
 function TaskList({ store }) {
   return (
-    <div>
+    <div id="task-list">
       {store.tasks.filter(task => !task.completed).map(task => (
         <Item task={task} key={task.id} />
       ))}

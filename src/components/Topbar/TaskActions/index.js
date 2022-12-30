@@ -6,7 +6,7 @@ import SaveBtn from './SaveBtn'
 
 function TaskActions() {
   return (
-    <div>
+    <div id="task-actions">
       <DeleteBtn />
       <MarkAsCompletedBtn />
       <SaveBtn />

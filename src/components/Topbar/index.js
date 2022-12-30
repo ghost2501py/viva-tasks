@@ -6,10 +6,10 @@ import TaskActions from './TaskActions'
 
 function TaskList({ store }) {
   return (
-    <div>
+    <div id="topbar">
       <AddTaskBtn />
 
-      {store.currentTask && (
+      {store.currentTask.id && (
         <TaskActions />
       )}
     </div>

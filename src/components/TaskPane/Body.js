@@ -7,7 +7,7 @@ function Body({ store }) {
   }
 
   return (
-    <div>
+    <div id="task-pane-body">
       <textarea
         value={store.currentTask.body}
         onChange={handleChange}

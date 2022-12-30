@@ -6,9 +6,14 @@ function Item({ store, task }) {
     store.setCurrentTaskById(task.id)
   }
 
+  let title = task.title
+  if (!title.length) {
+    title = 'Untitled'
+  }
+
   return (
-    <div onClick={handleClick}>
-      <div>{task.title}</div>
+    <div onClick={handleClick} className="item">
+      {title}
     </div>
   )
 }

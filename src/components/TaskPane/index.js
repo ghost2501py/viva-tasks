@@ -6,10 +6,10 @@ import Title from './Title'
 
 function TaskPane({ store }) {
   if (!store.currentTask.id) {
-    return <div>No task selected</div>
+    return <div id="task-pane" className="no-task">No task selected</div>
   }
   return (
-    <div>
+    <div id="task-pane">
       <Title />
       <Body />
     </div>

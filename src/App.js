@@ -2,12 +2,16 @@ import Topbar from './components/Topbar'
 import TaskList from './components/TaskList'
 import TaskPane from './components/TaskPane'
 
+import './App.css'
+
 function App() {
   return (
-    <div className="App">
+    <div id="app">
       <Topbar />
-      <TaskList />
-      <TaskPane />
+      <main>
+        <TaskList />
+        <TaskPane />
+      </main>
     </div>
   )
 }

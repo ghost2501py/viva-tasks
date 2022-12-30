@@ -1,38 +1,85 @@
-.App {
+#app {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+#topbar {
+  display: flex;
+  background: blue;
+}
+
+#topbar button {
+  background: transparent;
+  padding: 20px;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#topbar button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#task-actions {
+  display: flex;
+  margin-left: auto;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+}
+
+#task-list {
+  width: 30%;
+  background: #eee;
+}
+
+#task-list .item {
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+#task-list .item:hover {
+  background: #ddd;
+}
+
+#task-pane {
+  width: 70%;
+  display: flex;
+  flex-flow: column;
+}
+
+#task-pane.no-task {
+  padding: 15px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input {
+  width: 100%;
+  border: none;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 21px;
+  box-sizing: border-box;
+}
+input:focus {
+  outline: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#task-pane-body {
+  flex-grow: 1;
+  background: green;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+textarea {
+  width: 100%;
+  border: none;
+  padding: 15px;
+  box-sizing: border-box;
+  height: 100%;
+  display: block;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+textarea:focus {
+  outline: none;
 }
