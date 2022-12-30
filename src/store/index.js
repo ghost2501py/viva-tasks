@@ -5,11 +5,13 @@ import {
   makeObservable,
   observable,
   autorun,
+  runInAction,
+  toJS,
 } from 'mobx'
 
 import CurrentTask from './CurrentTask'
 
-class Store {
+class RootStore {
   tasks = []
   currentTask = null
 
@@ -18,22 +20,37 @@ class Store {
     makeObservable(this, {
       tasks: observable,
       createTask: action,
+      prefetchData: action,
     })
+    runInAction(this.prefetchData)
+    autorun(this.saveToJson)
   }
 
-  createTask() {
+  createTask = () => {
     // TODO: uuid
     const task = { id: Date.now(), title: '', body: '', completed: false }
     this.tasks.push(task)
     this.currentTask.update({...task})
   }
 
-  setCurrentTaskById(taskId) {
+  setCurrentTaskById = (taskId) => {
     const taskIndex = this.tasks.findIndex((task) => task.id === taskId)
     if (taskIndex > -1) {
       this.currentTask.update({...this.tasks[taskIndex]})
     }
   }
+
+  prefetchData = async () => {
+    const tasks = await window.ipcRenderer.invoke('getStoreValue', 'tasks')
+    if (tasks) {
+      this.tasks = tasks
+    }
+  }
+
+  saveToJson = async () => {
+    const tasks = toJS(this.tasks)
+    await window.ipcRenderer.invoke('setStoreValue', 'tasks', tasks)
+  }
 }
 
-export default new Store()
+export default new RootStore()
