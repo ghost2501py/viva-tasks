@@ -29,7 +29,7 @@ class RootStore {
   createTask = () => {
     // TODO: uuid
     const task = { id: Date.now(), title: '', body: '', completed: false }
-    this.tasks.push(task)
+    this.tasks.unshift(task)
     this.currentTask.update({...task})
   }
 
