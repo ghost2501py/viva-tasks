@@ -11,7 +11,7 @@ function Body({ store }) {
       <textarea
         value={store.currentTask.task.body}
         onChange={handleChange}
-        placeholder='Body'
+        placeholder="Body"
       />
     </div>
   )

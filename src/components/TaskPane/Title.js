@@ -11,8 +11,8 @@ function Title({ store }) {
       <input
         value={store.currentTask.task.title}
         onChange={handleChange}
-        type='text'
-        placeholder='Title'
+        type="text"
+        placeholder="Title"
       />
     </div>
   )
