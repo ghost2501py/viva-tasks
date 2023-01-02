@@ -3,13 +3,13 @@ import { inject, observer } from 'mobx-react'
 
 function Title({ store }) {
   const handleChange = (evt) => {
-    store.currentTask.setTitle(evt.target.value)
+    store.currentTask.change('title', evt.target.value)
   }
 
   return (
     <div>
       <input
-        value={store.currentTask.title}
+        value={store.currentTask.task.title}
         onChange={handleChange}
         type='text'
         placeholder='Title'

@@ -5,7 +5,7 @@ import Body from './Body'
 import Title from './Title'
 
 function TaskPane({ store }) {
-  if (!store.currentTask.id) {
+  if (!store.currentTask.task.id) {
     return <div id="task-pane" className="no-task">No task selected</div>
   }
   return (

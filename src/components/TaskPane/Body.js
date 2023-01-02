@@ -3,13 +3,13 @@ import { inject, observer } from 'mobx-react'
 
 function Body({ store }) {
   const handleChange = (evt) => {
-    store.currentTask.setBody(evt.target.value)
+    store.currentTask.change('body', evt.target.value)
   }
 
   return (
     <div id="task-pane-body">
       <textarea
-        value={store.currentTask.body}
+        value={store.currentTask.task.body}
         onChange={handleChange}
         placeholder='Body'
       />

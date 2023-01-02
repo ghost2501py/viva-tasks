@@ -9,7 +9,7 @@ function TaskList({ store }) {
     <div id="topbar">
       <AddTaskBtn />
 
-      {store.currentTask.id && (
+      {store.currentTask.task.id && (
         <TaskActions />
       )}
     </div>

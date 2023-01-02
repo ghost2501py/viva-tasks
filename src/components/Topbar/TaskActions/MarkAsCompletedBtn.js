@@ -8,13 +8,13 @@ function MarkAsCompletedBtn({ store }) {
   }
 
   let label = 'Mark as completed'
-  if (store.currentTask.completed) {
+  if (store.currentTask.task.completed) {
     label = 'Completed'
   }
 
   return (
     <div>
-      <button onClick={handleClick} disabled={store.currentTask.completed}>
+      <button onClick={handleClick} disabled={store.currentTask.task.completed}>
         {label}
       </button>
     </div>

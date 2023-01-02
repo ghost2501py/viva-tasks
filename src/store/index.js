@@ -1,7 +1,5 @@
-import React from 'react'
 import {
   action,
-  computed,
   makeObservable,
   observable,
   autorun,
@@ -20,7 +18,7 @@ class RootStore {
     makeObservable(this, {
       tasks: observable,
       createTask: action,
-      prefetchData: action,
+      setTasks: action,
     })
     runInAction(this.prefetchData)
     autorun(this.saveToJson)
@@ -30,20 +28,24 @@ class RootStore {
     // TODO: uuid
     const task = { id: Date.now(), title: '', body: '', completed: false }
     this.tasks.unshift(task)
-    this.currentTask.update({...task})
+    this.currentTask.load({...task})
   }
 
   setCurrentTaskById = (taskId) => {
     const taskIndex = this.tasks.findIndex((task) => task.id === taskId)
     if (taskIndex > -1) {
-      this.currentTask.update({...this.tasks[taskIndex]})
+      this.currentTask.load({...this.tasks[taskIndex]})
     }
+  }
+
+  setTasks(tasks) {
+    this.tasks = tasks
   }
 
   prefetchData = async () => {
     const tasks = await window.ipcRenderer.invoke('getStoreValue', 'tasks')
     if (tasks) {
-      this.tasks = tasks
+      this.setTasks(tasks)
     }
   }
 
