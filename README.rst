@@ -31,7 +31,13 @@ Installing
 Deploy
 ------
 
-1. Run the docker container:
+1. Build the React app:
+
+   .. code-block:: bash
+
+      $ yarn build
+
+2. Run the docker container:
 
    .. code-block:: bash
 
@@ -44,7 +50,7 @@ Deploy
          -v ~/.cache/electron-builder:/root/.cache/electron-builder \
          electronuserland/builder:wine
 
-2. Run these commands to build the executable for Windows:
+3. Run these commands inside the container to build the executable for Windows:
 
    .. code-block:: bash
 
