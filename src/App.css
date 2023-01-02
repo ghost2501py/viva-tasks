@@ -19,6 +19,10 @@
 #topbar button:hover {
   background: rgba(0, 0, 0, 0.2);
 }
+#topbar button:disabled {
+  opacity: 0.5;
+  background: none;
+}
 
 #task-actions {
   display: flex;
@@ -56,13 +60,15 @@ main {
   text-align: center;
 }
 
-input {
+input, textarea {
   width: 100%;
   border: none;
   padding: 15px;
+  box-sizing: border-box;
+}
+input {
   font-weight: bold;
   font-size: 21px;
-  box-sizing: border-box;
 }
 input:focus {
   outline: none;
@@ -70,13 +76,8 @@ input:focus {
 
 #task-pane-body {
   flex-grow: 1;
-  background: green;
 }
 textarea {
-  width: 100%;
-  border: none;
-  padding: 15px;
-  box-sizing: border-box;
   height: 100%;
   display: block;
 }
