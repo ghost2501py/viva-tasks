@@ -12,6 +12,7 @@ Prerequisites
 
 * Node.js >= 18.12.1
 * Yarn >= 1.22.19
+* Docker >= 20.10.22
 
 Installing
 ----------
